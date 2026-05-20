@@ -58,6 +58,13 @@ let blobT = 0;
 // Platform colour stored as an array so it can be reused easily
 const PLATFORM_COLOR = [255, 160, 50]; // warm orange
 
+let bgImage;
+
+function preload() {
+  bgImage = loadImage("assets/image/Background.jpg");
+}
+``
+
 // ============================================================
 // setup()
 // Runs once at the very start of the sketch.
@@ -77,7 +84,8 @@ function setup() {
 // apply physics, resolve collisions, and draw everything.
 // ============================================================
 function draw() {
-  background(10);
+  image(bgImage, 0, 0, width, height);
+
 
   handleInput();
   applyPhysics();
