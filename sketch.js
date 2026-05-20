@@ -8,6 +8,8 @@
 // Instead of separate variables (playerX, playerY, playerVX...),
 // we store everything about the player in one object.
 // ------------------------------------------------------------
+
+
 let player = {
   x: 200, // horizontal position (centre of blob)
   y: 100, // vertical position (centre of blob)
@@ -43,6 +45,14 @@ let blobT = 0; // time input for noise — increases each frame
 // Floor position — where the ground is
 let floorY;
 
+
+let bgImage;
+
+function preload() {
+  bgImage = loadImage("assets/Celeste Background.jpg");
+}
+
+
 // ============================================================
 // setup()
 // Runs once at the very start of the sketch.
@@ -61,6 +71,7 @@ function setup() {
 // apply physics, and draw everything.
 // ============================================================
 function draw() {
+  image(bgImage, 0, 0, width, height);
   background(10); // near-black background
 
   drawFloor();
