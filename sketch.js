@@ -13,14 +13,20 @@
 //   - Later we can load this data from a JSON file instead
 // ------------------------------------------------------------
 let platforms = [
-  // { x, y, w, h }
-  { x: 0,   y: 410, w: 800, h: 40 }, // ground (full width floor)
-  { x: 80,  y: 310, w: 120, h: 16 }, // left low platform
-  { x: 280, y: 240, w: 140, h: 16 }, // centre platform
-  { x: 500, y: 170, w: 120, h: 16 }, // right high platform
-  { x: 160, y: 150, w: 100, h: 16 }, // left high platform
-  { x: 360, y: 320, w: 110, h: 16 }, // centre low platform
-  { x: 620, y: 290, w: 130, h: 16 }, // far right platform
+  { x: 0,   y: 410, w: 800, h: 40 },  // ground
+
+  // Zigzag upward pattern
+  { x: 60,  y: 330, w: 120, h: 16, angle: -0.08 },
+  { x: 220, y: 280, w: 120, h: 16, angle: 0.08 },
+  { x: 400, y: 230, w: 120, h: 16, angle: -0.1 },
+  { x: 580, y: 180, w: 120, h: 16, angle: 0.1 },
+
+  // Upper zigzag back
+  { x: 420, y: 140, w: 110, h: 16, angle: -0.08 },
+  { x: 260, y: 110, w: 110, h: 16, angle: 0.08 },
+
+  // ✅ Extra platform (new one)
+  { x: 100, y: 200, w: 100, h: 16, angle: -0.12 }
 ];
 
 // ------------------------------------------------------------
@@ -56,12 +62,12 @@ const GRAVITY = 0.6; // downward force added to vy every frame
 let blobT = 0;
 
 // Platform colour stored as an array so it can be reused easily
-const PLATFORM_COLOR = [255, 160, 50]; // warm orange
+const PLATFORM_COLOR = "#02d8f0";
 
 let bgImage;
 
 function preload() {
-  bgImage = loadImage("assets/image/Background.jpg");
+  bgImage = loadImage("assets/images/Background.jpg");
 }
 ``
 
@@ -225,12 +231,20 @@ function resolvePlatformCollisions() {
 // of objects — enemies, coins, tiles, etc.
 // ------------------------------------------------------------
 function drawPlatforms() {
-  fill(PLATFORM_COLOR[0], PLATFORM_COLOR[1], PLATFORM_COLOR[2]);
+  fill(PLATFORM_COLOR);
   noStroke();
 
   for (let i = 0; i < platforms.length; i++) {
     let p = platforms[i];
-    rect(p.x, p.y, p.w, p.h, 6); // rounded corners
+    push();
+
+translate(p.x + p.w / 2, p.y + p.h / 2); // move to center
+rotate(p.angle || 0); // rotate if angle exists
+
+rectMode(CENTER);
+rect(0, 0, p.w, p.h, 6);
+
+pop(); // rounded corners
   }
 }
 
