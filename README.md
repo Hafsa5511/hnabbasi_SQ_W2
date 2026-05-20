@@ -1,4 +1,4 @@
-# Week 2 Example 2: Platformer with Platforms Array
+# hnabbasi_SQ_W2
 
 ## What This Example Demonstrates
 
@@ -36,8 +36,11 @@ The console will show any errors in your sketch.
 
 ## Assets
 
-No external assets used. All visuals are generated with p5.js.
+| File | Source |
+|------|--------|
+| `assets/images/background.jpg` | from steamcommunity [1] |
 
 ## References
 
-N/A
+[1] Duderock. background. October 2021. Steam. https://steamcommunity.com/sharedfiles/filedetails/?id=2628212053. 
+
