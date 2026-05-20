@@ -38,7 +38,7 @@ The console will show any errors in your sketch.
 
 | File | Source |
 |------|--------|
-| `assets/images/background.jpg` | from steamcommunity [1] |
+| `assets/images/background.jpg` | from Duderock [1] |
 
 ## References
 
