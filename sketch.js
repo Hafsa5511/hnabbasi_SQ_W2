@@ -49,7 +49,7 @@ let floorY;
 let bgImage;
 
 function preload() {
-  bgImage = loadImage("assets/Celeste Background.jpg");
+  bgImage = loadImage("assets/images/background.jpg");
 }
 
 
@@ -72,7 +72,7 @@ function setup() {
 // ============================================================
 function draw() {
   image(bgImage, 0, 0, width, height);
-  background(10); // near-black background
+  //background(10); // near-black background
 
   drawFloor();
   handleInput();
