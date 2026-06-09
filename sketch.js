@@ -43,7 +43,7 @@ const PLATFORM_COLOR = "#02d8f0";
 let bgImage;
 
 function preload() {
-  bgImage = loadImage("assets/images/Background.jpg");
+  bgImage = loadImage("assets/images/background.jpg");
 }
 
 // ============================================================
